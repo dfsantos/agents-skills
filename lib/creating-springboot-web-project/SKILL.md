@@ -1,5 +1,5 @@
 ---
-name: springboot-initializer
+name: creating-springboot-web-project
 description: Faz o setup de um projeto Spring Boot. Utilize quando solicitado para que um projeto Spring Boot seja criado do zero. O projeto gerado combinará os padrões disponibilizados com as customisações do usuário. Acione quando o usuário necessitar que um novo projeto base do Spring Boot seja criado do zero.
 ---
 
