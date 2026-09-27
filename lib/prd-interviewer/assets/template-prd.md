@@ -17,8 +17,10 @@
 
 ### Cenários de Uso Principais (Key Use Cases)
 
-- **[Cenário 1]:** [Explicite a jornada do usuário ou fluxo operacional principal]
-- **[Cenário 2]:** [Explicite um fluxo secundário ou operacional relevante]
+[Descreva as situações em que o produto será usado: quem usa, em que contexto e com qual objetivo. Não descreva a sequência de passos: o detalhamento da jornada é definido em outro trabalho.]
+
+- **[Cenário 1]:** [Situação de uso principal — ex: No início do expediente, o gerente precisa saber quais clientes da carteira estão com pendências]
+- **[Cenário 2]:** [Situação de uso secundária ou menos frequente, mas relevante]
 
 ## 3. Personas e Públicos Impactados
 
@@ -58,21 +60,18 @@
 1. **[Regra 1]:** [Exemplo: Os valores exibidos refletem sempre a situação real e atualizada.]
 2. **[Regra 2]:** [Exemplo: Um registro inativo não deve ser visível na experiência pública.]
 
-## 7. Requisitos Funcionais (RFs) e Histórias de Usuário
+## 7. Requisitos Funcionais (RFs)
 
-[Foque na experiência e comportamento do produto, do ponto de vista de quem usa. Não descreva como será implementado.]
+[Liste as capacidades que o produto precisa oferecer, em termos gerais. Não descreva como será construído, como o trabalho será organizado nem o passo a passo das jornadas: isso é definido em outros trabalhos. Classifique cada RF como Essencial (indispensável para o produto cumprir seu propósito) ou Desejável (agrega valor, mas o produto se sustenta sem ele). Essencial tem precedência sobre Desejável.]
 
-### Módulo: [Nome do Módulo]
+| ID | Nome | Necessidade | Classificação |
+|---|---|---|---|
+| RF-001 | [Nome do Requisito] | [O que o produto deve permitir ou garantir, e para qual persona da seção 3] | Essencial |
+| RF-002 | [Nome do Requisito] | [O que o produto deve permitir ou garantir, e para qual persona da seção 3] | Desejável |
 
-#### RF-001: [Nome do Requisito] (Prioridade: P0)
+### Regras Visíveis ao Usuário
 
-**História de Usuário:** Como [persona], quero [ação] para que [benefício].
-
-**Comportamento Esperado:**
-- [Passo a passo lógico da jornada ou regra do produto]
-
-**Exceções e Casos de Borda:**
-- [O que o usuário deve ver ou poder fazer quando algo foge do fluxo normal]
+- **RF-001:** [Regra que o usuário percebe ao usar o produto. Ex: Não é possível agendar uma aula que já está lotada]
 
 ## 8. Restrições e Expectativas de Negócio
 
@@ -88,11 +87,3 @@
 
 - **Premissa:** [Hipótese ou condição de negócio assumida como verdadeira para este escopo]
 - **Risco Registrado:** [Risco de negócio, adoção ou operação] → **Mitigação:** [Ação preventiva proposta]
-
-## 10. Critérios de Aceitação (Definition of Done)
-
-Checklist objetivo para validar se o requisito foi atendido com qualidade:
-
-- [ ] [O usuário consegue realizar o fluxo X de ponta a ponta sem erros]
-- [ ] [As exceções conhecidas são tratadas de forma compreensível para o usuário]
-- [ ] [As restrições e expectativas de negócio da seção 8 são atendidas]

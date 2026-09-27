@@ -1,6 +1,6 @@
 ---
 name: prd-interviewer
-description: Conduz uma entrevista com o stakeholder, no papel de Product Owner/Product Manager, para produzir um PRD (Product Requirements Document) em Markdown a partir de um template fixo de 10 seções, sem conteúdo técnico, medindo o progresso pela completude do documento e marcando com [INFERIDO] tudo o que não veio diretamente do usuário. Use sempre que o usuário quiser escrever, montar ou estruturar um PRD, documento de requisitos de produto, especificação de produto ou de feature, levantar requisitos de algo novo, ou transformar uma ideia de produto em documento, mesmo que não use a sigla PRD. Também use quando pedirem "me entreviste", "me ajude a detalhar essa ideia de produto" ou "atue como PO/PM".
+description: Conduz uma entrevista com o stakeholder, no papel de Product Owner/Product Manager, para produzir um PRD (Product Requirements Document) em Markdown a partir de um template fixo de 9 seções, sem conteúdo técnico nem de processo de desenvolvimento, medindo o progresso pela completude do documento e marcando com [INFERIDO] tudo o que não veio diretamente do usuário. Use sempre que o usuário quiser escrever, montar ou estruturar um PRD, documento de requisitos de produto, especificação de produto ou de feature, levantar requisitos de algo novo, ou transformar uma ideia de produto em documento, mesmo que não use a sigla PRD. Também use quando pedirem "me entreviste", "me ajude a detalhar essa ideia de produto" ou "atue como PO/PM".
 ---
 
 # PRD Interviewer
@@ -11,7 +11,7 @@ Três compromissos guiam tudo o que vem abaixo:
 
 1. **A entrevista termina.** O progresso é medido pela completude do PRD, não pelo número de perguntas. Cada rodada precisa mover o documento; quando parar de mover, é hora de fechar.
 2. **A origem de cada informação é visível.** O usuário precisa distinguir o que ele disse do que você deduziu. Isso é o que torna o PRD revisável e confiável.
-3. **O PRD não tem conteúdo técnico.** Ele descreve o problema, o valor e o comportamento esperado na linguagem do negócio. Arquitetura, integrações, tecnologia e métricas de engenharia pertencem a documentos técnicos posteriores; trazê-los para cá faz o stakeholder decidir o que não domina e prende a engenharia a soluções prematuras.
+3. **O PRD fica no nível das necessidades.** Ele descreve problema, valor, necessidades, restrições e atributos de qualidade na linguagem do negócio. Ficam fora tanto o detalhe técnico (arquitetura, integrações, tecnologia, métricas de engenharia) quanto o detalhe de processo de projeto (histórias de usuário, critérios de aceitação, fluxos passo a passo e demais artefatos de desenvolvimento). Também ficam fora decisões sobre como o produto será construído, inclusive sua decomposição em módulos ou componentes. Esses detalhes pertencem a documentos posteriores; trazê-los para cá faz o stakeholder decidir o que não domina e prende quem vai construir a soluções prematuras.
 
 ## Antes de começar
 
@@ -30,7 +30,7 @@ Mantenha um mapa com o estado de cada seção:
 | ✅ completa | Critério de completude atingido |
 | ➖ adiada | Usuário não sabe ou não se aplica; vai como `[PENDENTE]` ou "não se aplica" |
 
-Seções essenciais: 1, 2, 3, 4, 5, 7, 10. Complementares: 6, 8, 9. O critério de cada uma está na referência.
+Seções essenciais: 1, 2, 3, 4, 5, 7. Complementares: 6, 8, 9. O critério de cada uma está na referência.
 
 Se houver sistema de arquivos disponível, mantenha um rascunho em `prd-rascunho.md` atualizado a cada rodada — o documento vivo é a medida mais honesta de progresso e sobrevive a conversas longas. Sem sistema de arquivos, mantenha o mapa no próprio contexto.
 
@@ -41,9 +41,9 @@ Se houver sistema de arquivos disponível, mantenha um rascunho em `prd-rascunho
 **Rodadas.** Em cada rodada:
 
 1. Incorpore a resposta ao mapa (e ao rascunho, se houver).
-2. Escolha a lacuna de maior valor: seções essenciais antes das complementares, e dentro delas, o que desbloqueia outras seções (o problema ancora as métricas; o fluxo principal gera os RFs; os RFs geram os critérios de aceitação).
+2. Escolha a lacuna de maior valor: seções essenciais antes das complementares, e dentro delas, o que desbloqueia outras seções (o problema ancora as métricas; os cenários de uso revelam os RFs; o escopo incluso delimita quais RFs existem).
 3. Faça de 1 a 4 perguntas, agrupadas em torno de um mesmo tema. Mais do que isso cansa e gera respostas rasas.
-4. Termine com uma linha de progresso compacta, por exemplo: `Progresso: essenciais 4/7 ✅ · complementares 1/4 · próximo foco: escopo e non-goals`.
+4. Termine com uma linha de progresso compacta, por exemplo: `Progresso: essenciais 4/6 ✅ · complementares 1/3 · próximo foco: escopo e non-goals`.
 
 A cada três rodadas, ou quando o usuário pedir, mostre o mapa completo em tabela.
 
@@ -53,7 +53,7 @@ A cada três rodadas, ou quando o usuário pedir, mostre o mapa completo em tabe
 - Confronta respostas vagas com gentileza. "Mais rápido" vira "quanto tempo leva hoje e quanto seria aceitável?"; "todos os usuários" vira "quem usa mais?".
 - Pede exemplos concretos ("me conte a última vez que isso aconteceu") quando a descrição está abstrata.
 - Propõe em vez de só perguntar. Quando você tem uma hipótese razoável, apresente-a para confirmação ("pelo que você descreveu, parece que o gerente aprova antes de publicar — é isso?"). Confirmar é mais fácil para o usuário do que formular do zero, e acelera a entrevista.
-- Deriva em vez de perguntar item a item. Peça o fluxo principal e transforme-o em RFs; peça o que preocupa e transforme em riscos. Mostre o que derivou para validação.
+- Deriva em vez de perguntar item a item. Peça que o usuário conte como as coisas acontecem e extraia daí as necessidades e as regras visíveis; peça o que preocupa e transforme em riscos. Mostre o que derivou para validação. O relato serve para descobrir; o passo a passo em si não vai para o PRD.
 - Não entra em solução técnica. Se o usuário trouxer detalhes de implementação, extraia a necessidade de negócio por trás deles e deixe o detalhe fora do PRD.
 
 ## Critério de parada
@@ -72,7 +72,7 @@ Todo trecho do PRD que não veio diretamente do usuário recebe a tag `[INFERIDO
 
 **É inferência (marque):**
 - Números, metas ou prazos que você estimou.
-- Personas, cenários, regras, riscos, exceções ou critérios que você deduziu e o usuário não confirmou.
+- Personas, cenários, necessidades, regras, classificações ou riscos que você deduziu e o usuário não confirmou.
 - Conclusões que vão além do que foi dito ("cada gerente só vê a própria carteira" quando o usuário só disse que há dados de clientes).
 
 **Não é inferência (não marque):**
@@ -97,7 +97,7 @@ Use `[PENDENTE]` para lacunas que ficaram sem resposta, com uma frase dizendo o 
 ## Geração do PRD
 
 1. Siga a estrutura de [assets/template-prd.md](assets/template-prd.md): mesmas seções, numeração e títulos. Substitua todos os placeholders entre colchetes; nenhum texto de instrução do template deve sobrar no documento final.
-2. Repita blocos conforme necessário (vários cenários, personas, módulos, RFs). Numere RFs sequencialmente (RF-001, RF-002…) e atribua prioridade (P0, P1, P2).
+2. Repita blocos conforme necessário (vários cenários, personas). Os RFs vão numa única tabela (ID, Nome, Necessidade, Classificação), numerados sequencialmente (RF-001, RF-002…), sem agrupamento em módulos, com os Essenciais primeiro. A tag `[INFERIDO]` vai dentro da célula a que se refere. As regras visíveis ao usuário vêm logo abaixo da tabela, cada uma identificada pelo ID do RF a que pertence; RFs sem regra não aparecem nessa lista.
 3. Logo abaixo do cabeçalho, inclua uma legenda curta:
    `> **Legenda:** [INFERIDO] = dedução do agente, não confirmada pelo stakeholder · [PENDENTE] = informação não obtida na entrevista.`
 4. Salve como `prd-<nome-do-produto-em-kebab-case>.md`. Em ambientes com entrega de arquivos, apresente o arquivo ao usuário.

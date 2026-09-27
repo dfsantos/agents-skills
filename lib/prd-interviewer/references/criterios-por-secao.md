@@ -2,7 +2,7 @@
 
 Use este arquivo para decidir o estado de cada seção no mapa de completude e para escolher as próximas perguntas. As perguntas sugeridas são pontos de partida: adapte ao vocabulário do usuário e ao que ele já disse, e nunca pergunte algo que a conversa já respondeu.
 
-Seções **essenciais** (1, 2, 3, 4, 5, 7, 10) precisam estar completas para a entrevista terminar por completude. Seções **complementares** (6, 8, 9) podem ser encerradas como `[PENDENTE]` sem bloquear o fim — é melhor deixar a lacuna explícita do que inventar conteúdo.
+Seções **essenciais** (1, 2, 3, 4, 5, 7) precisam estar completas para a entrevista terminar por completude. Seções **complementares** (6, 8, 9) podem ser encerradas como `[PENDENTE]` sem bloquear o fim — é melhor deixar a lacuna explícita do que inventar conteúdo.
 
 Nenhuma seção pede conhecimento técnico. Se o usuário trouxer detalhes de implementação (tecnologia, banco, API, arquitetura), agradeça, extraia a necessidade de negócio por trás deles e deixe o detalhe técnico fora do PRD.
 
@@ -24,11 +24,13 @@ Nenhuma seção pede conhecimento técnico. Se o usuário trouxer detalhes de im
 
 ## 2. Problema e Cenários de Uso — essencial
 
-**Completo quando:** a dor está descrita com impacto concreto (tempo, dinheiro, erro, retrabalho, risco) e há pelo menos um cenário principal descrito como jornada (quem faz o quê, em que ordem).
+**Completo quando:** a dor está descrita com impacto concreto (tempo, dinheiro, erro, retrabalho, risco) e há pelo menos um cenário principal descrito como situação de uso: quem usa, em que contexto e com qual objetivo. O cenário não descreve a sequência de passos.
 
 **Parcial quando:** a dor é genérica ("é ruim", "é lento") ou só há a solução, sem o problema.
 
-**Perguntas:** "Como isso é feito hoje, passo a passo?" · "O que acontece de ruim hoje, e com que frequência?" · "Me conte a última vez em que esse problema aconteceu."
+**Perguntas:** "Como isso é feito hoje?" · "O que acontece de ruim hoje, e com que frequência?" · "Me conte a última vez em que esse problema aconteceu."
+
+Se o usuário narrar o processo em detalhe, use o relato para entender a dor e identificar as situações de uso, mas registre no PRD só a situação (quem, contexto, objetivo), não os passos.
 
 Atenção: stakeholders costumam chegar com a solução pronta. Volte ao problema antes de aceitar a solução como dada — sem problema claro, as métricas da seção 4 ficam sem âncora.
 
@@ -60,13 +62,20 @@ Se o usuário não souber a meta, proponha uma faixa plausível como hipótese e
 
 ## 7. Requisitos Funcionais — essencial
 
-**Completo quando:** cada capacidade do escopo incluso virou ao menos um RF com história de usuário, comportamento esperado e prioridade. Exceções e casos de borda podem vir do agente como `[INFERIDO]` se o usuário não detalhar.
+**Completo quando:** cada capacidade do escopo incluso virou ao menos um RF com necessidade e classificação (Essencial ou Desejável), e as regras que o usuário percebe ao usar o produto estão registradas.
 
-**Parcial quando:** há RFs só para parte do escopo, ou RFs sem comportamento esperado.
+**Parcial quando:** há RFs só para parte do escopo, ou RFs sem necessidade clara ou sem classificação.
 
-**Perguntas:** "Descreva o fluxo principal, do começo ao fim, como o usuário vê." · "O que deve acontecer se [situação fora do normal plausível]?" · "Entre essas capacidades, o que é indispensável para o lançamento (P0) e o que pode esperar?"
+**Perguntas:** "O que a pessoa precisa conseguir fazer com o produto?" · "Existe alguma regra ou limite que o usuário vai perceber ao usar (algo que ele não pode fazer, uma condição para conseguir)?" · "Sem quais dessas capacidades o produto não cumpre seu propósito? E quais agregam valor, mas podem ficar de fora?"
 
-Não pergunte cada RF isoladamente — peça o fluxo e derive os RFs dele, mostrando o resultado para validação. Descreva comportamento visto pelo usuário, nunca a forma de implementar.
+Pedir que o usuário descreva como as coisas acontecem ajuda a descobrir capacidades e regras, mas o passo a passo em si não entra no PRD: o detalhamento de comportamento pertence à análise de jornada, feita em outro trabalho. Registre apenas a necessidade e as regras visíveis ao usuário. Na tabela de RFs, a necessidade cabe em uma frase; regras ficam na lista abaixo da tabela, referenciadas pelo ID do RF.
+
+O PRD não contém:
+- **Histórias de usuário** ("Como [persona], quero…") nem critérios de aceitação — são artefatos do processo de desenvolvimento.
+- **Agrupamento por módulo, componente ou subsistema** — decompor o produto é decisão arquitetural.
+- **Fluxos passo a passo, exceções e casos de borda detalhados** — são detalhamento de comportamento. Se uma exceção se manifesta como regra que o usuário percebe ("não é possível cancelar com menos de 2 horas de antecedência"), ela entra como regra visível.
+
+Classificação: **Essencial** é indispensável para o produto cumprir seu propósito; **Desejável** agrega valor, mas o produto se sustenta sem ele. Essencial tem precedência sobre Desejável. Se o usuário hesitar, pergunte o que aconteceria se a capacidade não existisse no lançamento.
 
 ## 8. Restrições e Expectativas de Negócio — complementar
 
@@ -83,7 +92,3 @@ Registre as respostas como o usuário as expressou, em linguagem de negócio. N�
 Registre apenas riscos de negócio, adoção, operação, prazo ou dependência de outras áreas. Riscos técnicos (falha de integração, desempenho de banco, escolha de tecnologia) ficam fora do PRD.
 
 **Perguntas:** "O que precisa ser verdade para esse plano funcionar?" · "O que mais te preocupa que dê errado?" · "Depende de alguma outra área ou decisão para acontecer?"
-
-## 10. Critérios de Aceitação — essencial
-
-**Completo quando:** há critérios verificáveis, do ponto de vista do usuário ou do negócio, cobrindo os RFs P0, as exceções principais e as restrições da seção 8. Esta seção normalmente é derivada pelo agente a partir das seções 7 e 8; apresente-a ao usuário para validação no fechamento. Critérios que ele não validar ficam com `[INFERIDO]`.
